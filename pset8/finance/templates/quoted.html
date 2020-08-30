@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <h4>{{ symbol }}: {{ price }}</h4><br/>
+    <a class="btn btn-primary" href="buy" role="button">Buy Stock</a>
+    <a class="btn btn-primary" href="sell" role="button">Sell Stock</a><br/><br/>
+    <a class="btn btn-primary" href="quote" role="button">New Lookup</a>
+{% endblock %}
