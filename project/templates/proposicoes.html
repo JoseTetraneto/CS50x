@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Proposições
+{% endblock %}
+
+{% block main %}
+<div style="text-align: center; padding-top: 15px;">
+    <input class="filtrosTabelas" type="text" id="buscaProposicao" onkeyup="filtroProposicoes()" placeholder="Pesquise a ementa do Projeto de Lei">
+    <input class="filtrosTabelas" type="text" id="buscaAno" onkeyup="filtroAno()" placeholder="Pesquise o ano do Projeto de Lei">
+    <input class="filtrosTabelas" type="text" id="buscaStatus" onkeyup="filtroStatus()" placeholder="Pesquise o status do Projeto de Lei">
+</div>
+<div class="table-responsive">
+    <table id="Proposicoes" class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th style="text-align: center; vertical-align: middle;">Ementa</th>
+                <th style="text-align: center; vertical-align: middle;">Ano</th>
+                <th style="text-align: center; vertical-align: middle;">Status</th>
+                <th style="text-align: center; vertical-align: middle;">Íntegra</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proposicao in proposicoes %}
+            <tr>
+                <td class="ementa">{{proposicao['ementa']}}</td>
+                <td style="text-align: center; vertical-align: middle;" class="complemento">{{proposicao['ano']}}</td>
+                <td style="text-align: center; vertical-align: middle;" class="complemento">{{proposicao['descricaoSituacao']}}</td>
+                <td style="text-align: center; vertical-align: middle;" class="complemento"><button style="background-color: rgb(39, 177, 39); border-color: rgb(39, 177, 39);" class="btn btn-primary"><a style="color: white;" href={{proposicao['urlInteiroTeor']}}>Link</a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

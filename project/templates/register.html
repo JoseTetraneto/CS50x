@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cadastre-se
+{% endblock %}
+
+{% block main %}
+<h4 class="heading-formularios">Faça o seu <strong>registro</strong> abaixo</h4>
+<div class="formularios">
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirm_password" placeholder="Confirm Password" type="password">
+        </div>
+        <button style="background-color: rgb(39, 177, 39); border-color: rgb(39, 177, 39);" class="btn btn-primary" type="submit">Register</button>
+    </form>
+</div>
+{% endblock %}

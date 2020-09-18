@@ -1,0 +1,175 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  .div-cabecalho {
+    text-align: right;
+    background-color: black;
+  }
+  .cabecalho {
+    display: inline;
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 13pt;
+    padding: 4px;
+  }
+  footer {
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+  }
+  .assinatura {
+    color: black;
+    font-weight: bold;
+  }
+  .formularios {
+    margin: auto;
+    width: 40%;
+    min-height: 71%;
+  }
+  .heading-formularios {
+    text-align: center;
+    padding: 20px;
+  }
+  .filtrosTabelas {
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 30%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid rgb(189, 189, 189);
+    margin-bottom: 15px;
+  }
+  #buscaProposicao {
+    background-image: url('/static/images/text.png');
+  }
+  #buscaAno {
+    background-image: url('/static/images/calendar.png');
+  }
+  #buscaStatus {
+    background-image: url('/static/images/status.png');
+  }
+  #buscaDeputado {
+    background-image: url('/static/images/deputados.png');
+  }
+  #buscaPartido {
+    background-image: url('/static/images/partido.png');
+  }
+  #buscaEscolaridade {
+    background-image: url('/static/images/books.png');
+  }
+  .table-responsive {
+    overflow:scroll;
+    height: 95%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+  }
+  .thead {
+    height: 5xp;
+  }
+  th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 1px;
+  }
+  .complemento {
+    text-align: center;
+    padding: 5px;
+  }
+  .ementa {
+    text-align: left;
+    padding: 5px;
+  }
+  
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+    position: relative;
+    opacity: 0.88;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .bgimg-1 {
+    min-height: 90%;
+  }
+  
+  .bgimg-2, .bgimg-3, .bgimg-4 {
+    min-height: 450px;
+  }
+  
+  .caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+  }
+  
+  .caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 15px;
+    font-size: 22px;
+    letter-spacing: 3px;
+  }
+  
+  .index-paragraph h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 20px "Lato", sans-serif;
+    color: #111;
+    text-align:center;
+  }
+
+  .index-paragraph {
+    color: #777;
+    background-color:white;
+    text-align:center;
+    padding:50px 80px;
+    text-align: justify;
+  }
+  
+  /* Turn off parallax scrolling for tablets and phones */
+  @media only screen and (max-device-width: 1024px) {
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+      background-attachment: scroll;
+    }
+  .caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+  }
+  
+  .caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 15px;
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+  
+  .index-paragraph h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 20px "Lato", sans-serif;
+    color: #111;
+    text-align:center;
+  }
+
+  .index-paragraph {
+    color: #777;
+    background-color:white;
+    text-align:center;
+    text-align: justify;
+    width: 100%;
+  }
+  }

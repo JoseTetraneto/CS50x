@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/style.css">
+        <script src="static/script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <title>Lembrô - {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+      <div class="div-cabecalho">
+        <a class="cabecalho" href="/register">Cadastre-se</a>
+        <a class="cabecalho" href="/login">Entrar</a>
+        <a class="cabecalho" href="/logout">Sair</a>
+      </div>
+      <nav class="navbar navbar-expand-md bg-success navbar-dark sticky-top">
+        <a class="navbar-brand" href="/">
+          <img src="static/images/brasil.png" alt="Bandeira do Brasil" style="width:40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/deputados">Deputados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/proposicoes">Projetos de Lei</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/meuscandidatos">Meus Deputados</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      {% block main %}{% endblock %}
+      <footer>
+        Developed by
+        <a class="assinatura" href="https://twitter.com/JTetraneto"> José Tetraneto</a>
+      </footer>
+    </body>
+</html>

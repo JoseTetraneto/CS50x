@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Deputado(a)
+{% endblock %}
+
+{% block main %}
+    {% for row in deputado %}
+    <form action="/meuscandidatos" method="post">
+        <div class="row" style="max-width: 101%;">
+            <div class="column" style="width:50%; padding: 5px; padding-left: 20px;">
+                <div style="background-color: rgb(255, 250, 250);">
+                    <div class="media">
+                        <img src="{{row['foto']}}" alt="Foto {{row['nomeEleitoral']}}" class="align-self-start mr-3" style="border-radius: 5%; width: 18%;">
+                        <div class="media-body">
+                            <h4><u name="nomeCivil">{{row['nomeCivil']}}</u></h4>
+                            <p><strong>Partido:</strong> {{row['partido']}}<span>  /<strong>  Escolaridade:</strong> {{row['escolaridade']}}</span></p></p>
+                            <p><strong>Data de Nascimento:</strong> {{row['dataNascimento']}}<span>  /<strong>  Local de Nascimento:</strong> {{row['municipioNascimento']}}, {{row['ufNascimento']}}</span></p>
+                            <p><strong>Telefone do Gabinete:</strong> {{row['telefone']}}<span>  /<strong>  Local do Gabinete:</strong> Predio {{row['predio']}}, Sala {{row['sala']}}</span></p>
+                            <p style="display: inline;"><strong>E-mail:</strong> {{row['email']}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column" style="width:50%; padding: 5px; background-color: rgb(255, 250, 250); border-left-color: black; border-left-style:solid;">
+                <h3 style="text-align: center;">O que exatamente há nesta pagina?</h3>
+                <p style="text-align: center;"> À esquerda você encontrará informações detalhadas a respeito do seu deputado(a).
+                Já na tabela abaixo você pode conferir como o seu deputado(a) votou em cada votação relacionada às diferentes 
+                Proposições. Você também pode clicar no ID da Proposição para ler a proposição na íntegra.</p>
+                <h5 style="text-align: center;"><a style="color: black;" href="/register">Registre-se</a> e <span><button style="background-color: rgb(39, 177, 39); border-color: rgb(39, 177, 39); font-size: 14pt; padding:1px; padding-bottom: 2px;" class="btn btn-primary" type="submit" name="nomeCivil" value="{{row['nomeCivil']}}">clique aqui</button></span> para favoritar este deputado(a)</h5>
+            </div>
+        </div>  
+    </form>
+    {% endfor %}
+    <div class="table-responsive">
+        <table id="Proposicoes" class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="text-align: center; vertical-align: middle; width: 8%;">Id Votação</th>
+                    <th style="text-align: center; vertical-align: middle; width: 9%;">Id Proposição</th>
+                    <th style="text-align: center; vertical-align: middle; width: 60%;">Ementa Proposição</th>
+                    <th style="text-align: center; vertical-align: middle; width: 10%;">Situação</th>
+                    <th style="text-align: center; vertical-align: middle; width: 8%;">Data</th>
+                    <th style="text-align: center; vertical-align: middle; width: 5%;">Voto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for voto in votacoes %}
+                <tr>
+                    <td style="text-align: center; vertical-align: middle; width: 8%;">{{voto['id']}}</td>
+                    <td style="text-align: center; vertical-align: middle; width: 9%;"><a href="{{voto['urlInteiroTeor']}}">{{voto['idProp']}}</a></td>
+                    <td style="text-align: center; vertical-align: middle; width: 60%;">{{voto['ementa']}}</td>
+                    <td style="text-align: center; vertical-align: middle; width: 10%;">{{voto['descricaoSituacao']}}</td>
+                    <td style="text-align: center; vertical-align: middle; width: 8%;">{{voto['data']}}</td>
+                    <td style="text-align: center; vertical-align: middle; width: 5%;">{{voto['voto']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

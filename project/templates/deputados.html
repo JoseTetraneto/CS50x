@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Deputados
+{% endblock %}
+
+{% block main %}
+<div style="text-align: center; padding-top: 15px;">
+    <input class="filtrosTabelas" type="text" id="buscaDeputado" onkeyup="filtroDeputados()" placeholder="Pesquise por Deputado">
+    <input class="filtrosTabelas" type="text" id="buscaPartido" onkeyup="filtroPartidos()" placeholder="Pesquise por Partido">
+    <input class="filtrosTabelas" type="text" id="buscaEscolaridade" onkeyup="filtroEscolaridade()" placeholder="Pesquise por Escolaridade">
+</div>
+<div class="table-responsive">
+    <form action="{{url_for('selecione_deputado')}}" method="post">
+        <table id="Deputados" class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="text-align: center; vertical-align: middle;">Foto</th>
+                    <th style="text-align: center; vertical-align: middle;">Nome</th>
+                    <th style="text-align: center; vertical-align: middle;">Partido</th>
+                    <th style="text-align: center; vertical-align: middle;">Escolaridade</th>
+                    <th style="text-align: center; vertical-align: middle;">Detalhes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deputado in deputados %}
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <img style="width: 57px; height: 76px; border-radius: 5%" src="{{deputado['foto']}}" alt="Foto {{deputado['nomeEleitoral']}}">
+                    </td>
+                    <td name="nomeCivil" style="text-align: center; vertical-align: middle;">{{deputado['nomeCivil']}}</td>
+                    <td style="text-align: center; vertical-align: middle;">{{deputado['partido']}}</td>
+                    <td style="text-align: center; vertical-align: middle;">{{deputado['escolaridade']}}</td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <button style="background-color: rgb(39, 177, 39); border-color: rgb(39, 177, 39);" class="btn btn-primary" type="submit" name="nomeCivil" value="{{deputado['nomeCivil']}}">Ver detalhes</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+{% endblock %}

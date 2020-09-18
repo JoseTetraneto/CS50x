@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Meus Deputados
+{% endblock %}
+
+{% block main %}
+<h3 style="text-align: center; background-color: rgb(255, 250, 250);">Abaixo você verá os seus deputados salvos</h3>
+<div style="min-height: 75%;">
+    <div class="table-responsive">
+        <table id="Deputados" class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="text-align: center; vertical-align: middle;">Foto</th>
+                    <th style="text-align: center; vertical-align: middle;">Nome</th>
+                    <th style="text-align: center; vertical-align: middle;">Partido</th>
+                    <th style="text-align: center; vertical-align: middle;">Escolaridade</th>
+                    <th style="text-align: center; vertical-align: middle;">Detalhes</th>
+                    <th style="text-align: center; vertical-align: middle;">Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deputado in deputados %}
+                <tr>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <img style="width: 57px; height: 76px; border-radius: 5%" src="{{deputado['foto']}}" alt="Foto {{deputado['nomeCivil']}}">
+                    </td>
+                    <form action="{{url_for('selecione_deputado')}}" method="post">
+                    <td name="nomeCivil" style="text-align: center; vertical-align: middle;">{{deputado['nomeCivil']}}</td>
+                    <td style="text-align: center; vertical-align: middle;">{{deputado['partido']}}</td>
+                    <td style="text-align: center; vertical-align: middle;">{{deputado['escolaridade']}}</td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <button style="background-color: rgb(39, 177, 39); border-color: rgb(39, 177, 39);" class="btn btn-primary" type="submit" name="nomeCivil" value="{{deputado['nomeCivil']}}">Ver detalhes</button>
+                    </td>
+                    </form>
+                    <form action="/remove" method="post">
+                    <td style="text-align: center; vertical-align: middle;">
+                        <button style="background-color: red; border-color: red;" class="btn btn-primary" type="submit" name="nomeCivil" value="{{deputado['nomeCivil']}}">Remover</button>
+                        <input name="nomeCivil" type="hidden" value="{{deputado['nomeCivil']}}">
+                    </td>
+                    </form>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
